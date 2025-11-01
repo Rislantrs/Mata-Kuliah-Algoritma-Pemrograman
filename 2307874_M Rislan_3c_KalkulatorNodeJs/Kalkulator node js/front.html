@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalkulator</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: red;
+}
+.form-container {
+    background-color: red;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+.form-container h2 {
+    margin-bottom: 20px;
+    color: blue;
+}
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    color: blue;
+    text-align: left;
+}
+.form-container input[type="number"],
+.form-container select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: rgb(22, 20, 22);
+    font-size: 16px;
+    cursor: pointer;
+}
+.form-container button:hover {
+    background-color: pink;
+}
+</style>
+</head>
+<body>
+<div class="form-container">
+    <h2>Kalkulator</h2>
+    <form id="Kalkulator">
+        <label for="angkaPertama">Angka Pertama</label>
+        <input type="number" id="angkaPertama" name="angkaPertama" required>
+
+        <label for="operasi">Operasi</label>
+        <select id="operasi" name="operasi" required>
+            <option value="penjumlahan">Penjumlahan</option>
+            <option value="pengurangan">Pengurangan</option>
+            <option value="perkalian">Perkalian</option>
+            <option value="pembagian">Pembagian</option>
+        </select>
+
+        <label for="angkaKedua">Angka Kedua</label>
+        <input type="number" id="angkaKedua" name="angkaKedua" required>
+
+        <button type="submit">Send</button>
+    </form>
+</div>
+<script>
+document.getElementById('Kalkulator').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const angkaPertama = document.getElementById('angkaPertama').value;
+    const angkaKedua = document.getElementById('angkaKedua').value;
+    const operasi = document.getElementById('operasi').value;
+
+    fetch('http://localhost:3000/hitung', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ angkaPertama, angkaKedua, operasi })
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Menampilkan alert dengan format "Hasil Penjumlahan: ..."
+        alert(`Hasil ${data.operasi.charAt(0).toUpperCase() + data.operasi.slice(1)}: ${data.hasil}`);
+    })
+    .catch(error => console.error('Error:', error));
+});
+</script>
+</body>
+</html>

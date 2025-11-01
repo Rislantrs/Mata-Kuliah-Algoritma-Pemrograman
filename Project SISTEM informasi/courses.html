@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manajemen Mata Kuliah</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Manajemen Mata Kuliah</h1>
+        <nav>
+            <a href="#home">Home & Log In</a>
+            <a href="#courses">Mata Kuliah & Jadwal</a>
+            <a href="#tasks">Tugas & Deadline</a>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- Halaman Home & Log In -->
+        <section id="home" class="page">
+            <h2>Home & Log In</h2>
+            <p>Selamat datang di sistem manajemen mata kuliah. Silakan log in untuk melanjutkan.</p>
+            <form>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                
+                <button type="submit" class="login-btn">Log In</button>
+            </form>
+        </section>
+        
+        <!-- Halaman Mata Kuliah & Jadwal -->
+        <section id="courses" class="page">
+            <h2>Mata Kuliah & Jadwal</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mata Kuliah</th>
+                        <th>Hari</th>
+                        <th>Waktu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pemrograman Web</td>
+                        <td>Senin</td>
+                        <td>10:00 - 12:00</td>
+                    </tr>
+                    <tr>
+                        <td>Data Science</td>
+                        <td>Rabu</td>
+                        <td>13:00 - 15:00</td>
+                    </tr>
+                    <tr>
+                        <td>AI dan Machine Learning</td>
+                        <td>Jumat</td>
+                        <td>08:00 - 10:00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <!-- Halaman Tugas & Deadline -->
+        <section id="tasks" class="page">
+            <h2>Tugas & Deadline</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tugas</th>
+                        <th>Deskripsi</th>
+                        <th>Deadline</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tugas 1</td>
+                        <td>Membuat desain web</td>
+                        <td>20 November 2024</td>
+                    </tr>
+                    <tr>
+                        <td>Tugas 2</td>
+                        <td>Analisis data</td>
+                        <td>27 November 2024</td>
+                    </tr>
+                    <tr>
+                        <td>Tugas 3</td>
+                        <td>Proyek akhir</td>
+                        <td>10 Desember 2024</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Sistem Manajemen Mata Kuliah</p>
+    </footer>
+</body>
+</html>

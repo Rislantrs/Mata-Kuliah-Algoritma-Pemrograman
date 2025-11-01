@@ -1,0 +1,15 @@
+title This is a title Sequence Diagram for Greeting and Addition Functionality
+
+User -> Frontend: Input firstname & lastname, click "Send"
+Frontend -> Backend: POST /greet with JSON { "firstname": "John", "lastname": "Doel" }
+Backend -> Backend: Parse request, extract firstname and lastname
+Backend -> Backend: Generate greeting message "Hello, John Doel !"
+Backend -> Frontend: Send response "Hello, John Doel!"
+Frontend -> User: Show alert with message "Hello, John Doel !"
+
+User -> Frontend: Input angkaPertama & angkaKedua, click "Send"
+Frontend -> Backend: POST /penjumlahan with JSON { "angkaPertama": 5, "angkaKedua": 10 }
+Backend -> Backend: Parse request, extract angkaPertama and angkaKedua
+Backend -> Backend: Compute sum = angkaPertama + angkaKedua
+Backend -> Frontend: Send response with sum, e.g., "15"
+Frontend -> User: Show alert with result "15" 
